@@ -5,8 +5,24 @@ import CircularMenu from "./widget/CircularMenu";
 
 import CustomText from "../utils/CustomText";
 import { COLORS, SIZES } from "../constants";
+import { useState } from "react";
+
+enum Mode {
+  main = "main",
+  gameScrabble = "gameScrabble",
+}
 
 export default function MainScreen() {
+  const [mode, setMode] = useState<Mode>(Mode.main);
+
+  const handleSetMode = (m: Mode) => {
+    setMode(m);
+  };
+
+  const handleResetMode = () => {
+    setMode(Mode.main);
+  };
+
   return (
     <View style={styles.container}>
       <CustomText style={styles.title}>MAKO GAME</CustomText>
