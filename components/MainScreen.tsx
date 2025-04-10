@@ -6,6 +6,7 @@ import CircularMenu from "./widget/CircularMenu";
 import CustomText from "../utils/CustomText";
 import { COLORS, SIZES } from "../constants";
 import { useState } from "react";
+import Scrabble from "./games/Scrabble";
 
 enum Mode {
   main = "main",
@@ -23,6 +24,17 @@ export default function MainScreen() {
     setMode(Mode.main);
   };
 
+  const DisplaySection = () => {
+    switch (mode) {
+      case Mode.main:
+        return <CircularMenu />;
+      case Mode.gameScrabble:
+        return <Scrabble />;
+      default:
+        break;
+    }
+  };
+
   return (
     <View style={styles.container}>
       <CustomText style={styles.title}>MAKO GAME</CustomText>
@@ -34,8 +46,8 @@ export default function MainScreen() {
         <CustomText style={styles.timeText}>
           {dayjs().format("HH:mm")}
         </CustomText>
+        {DisplaySection()}
       </View>
-      <CircularMenu />
     </View>
   );
 }
