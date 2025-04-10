@@ -27,6 +27,10 @@ const Scrabble: React.FC<Props> = ({ onResetMode }) => {
     setOpen(false);
   };
 
+  const handleSetTime = (t: number) => {
+    setTime(t)
+  }
+
   return (
     <View style={styles.container}>
       <Ionicons
@@ -60,6 +64,7 @@ const Scrabble: React.FC<Props> = ({ onResetMode }) => {
           <Image source={images.megaPhone} style={styles.imagePhone} />
         </View>
         <TouchableOpacity
+          onPress={handleOpen}
           style={[styles.glassContainer, { backgroundColor: "#e6e3dd" }]}
         >
           <CustomText style={styles.cardText}>Settings</CustomText>
@@ -67,7 +72,7 @@ const Scrabble: React.FC<Props> = ({ onResetMode }) => {
         </TouchableOpacity>
       </View>
 
-      <SettingsModal isOpen={open} onClose={handleClose} timeValue={time} />
+      <SettingsModal isOpen={open} onClose={handleClose} onSetTime={handleSetTime} timeValue={time} />
     </View>
   );
 };

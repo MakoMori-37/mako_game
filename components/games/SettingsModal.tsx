@@ -1,8 +1,14 @@
-import React, { useState } from "react";
-import { StyleSheet, View, TextInput, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import Modal from "react-native-modal";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Snackbar from "react-native-snackbar";
+// import Snackbar from "react-native-snackbar";
 
 import CustomText from "../../utils/CustomText";
 import { COLORS, SIZES, SHADOWS } from "../../constants";
@@ -11,37 +17,42 @@ type Props = {
   timeValue: number;
   isOpen: boolean;
   onClose: () => void;
+  onSetTime: (t: number) => void;
 };
 
-const SettingsModal: React.FC<Props> = ({}) => {
+const SettingsModal: React.FC<Props> = ({
+  isOpen,
+  onClose,
+  timeValue,
+  onSetTime,
+}) => {
   const [time, setTime] = useState("3");
 
   const handlePress = () => {
     if (!time.trim()) {
-      Snackbar.show({
-        text: "ข้อมูลเวลาไม่ถูกต้อง",
-        duration: Snackbar.LENGTH_SHORT,
-        backgroundColor: COLORS.error,
-        marginBottom: 4,
-      });
+      console.log("first");
+      Alert.alert("แจ้งเตือน", "ข้อมูลเวลาไม่ถูกต้อง", [
+        { text: "OK", onPress: () => console.log("OK Pressed") },
+      ]);
       return;
     }
+    onSetTime(+time);
   };
 
-  //   useEffect(() => {
-  //     if (timeValue.toString() !== time) {
-  //       setTime(timeValue.toString());
-  //     }
-  //   }, [timeValue]);
+  useEffect(() => {
+    if (timeValue.toString() !== time) {
+      setTime(timeValue.toString());
+    }
+  }, [timeValue]);
 
   return (
     <>
-      <Modal propagateSwipe={true}>
+      <Modal isVisible={isOpen} onBackdropPress={onClose} propagateSwipe={true}>
         <View style={styles.modal}>
           <View style={styles.line} />
           <View style={styles.dateBoxLeft}>
             <Ionicons name="time-outline" size={40} color={COLORS.blurPink} />
-            <CustomText style={styles.dateText}>test</CustomText>
+            <CustomText style={styles.dateText}>Time</CustomText>
             <View style={styles.inputBox}>
               <TextInput
                 value={time}
@@ -51,7 +62,7 @@ const SettingsModal: React.FC<Props> = ({}) => {
                 onChangeText={(text) => setTime(text)}
               />
             </View>
-            <CustomText style={styles.dateText}>test</CustomText>
+            <CustomText style={styles.dateText}>second</CustomText>
           </View>
           <View style={styles.line} />
 
@@ -74,7 +85,7 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.large,
     borderWidth: 4,
     borderColor: COLORS.white,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.gray3,
   },
   dateBox: {
     flexDirection: "row",
@@ -87,15 +98,16 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   dateText: {
-    color: COLORS.darkGray,
+    color: COLORS.blurPink,
+    marginLeft: 15,
   },
   line: {
-    width: "95%",
+    width: "80%",
     alignSelf: "center",
     borderWidth: 0.3,
     opacity: 0.3,
     marginVertical: 10,
-    borderColor: COLORS.darkGray,
+    borderColor: COLORS.blurPink,
   },
   imageGlucose: {
     width: 20,
@@ -104,7 +116,7 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     width: 85,
-    height: 35,
+    height: 25,
     borderRadius: 22,
     backgroundColor: "#ebeced",
     ...SHADOWS.xLarge,
@@ -113,6 +125,7 @@ const styles = StyleSheet.create({
   input: {
     color: COLORS.sky,
     textAlign: "center",
+    marginTop: 4,
   },
 
   buttonContainer: {
