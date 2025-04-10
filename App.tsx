@@ -1,6 +1,8 @@
 import { StyleSheet, View } from "react-native";
 import MainScreen from "./components/MainScreen";
 
+import { COLORS } from "./constants";
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -12,7 +14,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#3e3f40",
+    backgroundColor: COLORS.gray3,
     alignItems: "center",
     justifyContent: "center",
   },

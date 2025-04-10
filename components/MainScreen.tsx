@@ -2,6 +2,8 @@ import { StyleSheet, View } from "react-native";
 import CircularMenu from "./widget/CircularMenu";
 import CustomText from "../utils/CustomText";
 
+import { COLORS } from "../constants";
+
 export default function MainScreen() {
   return (
     <View style={styles.container}>
@@ -14,7 +16,7 @@ export default function MainScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#3e3f40",
+    backgroundColor: COLORS.gray3,
     alignItems: "center",
     justifyContent: "center",
   },
