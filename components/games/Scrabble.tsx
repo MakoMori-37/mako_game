@@ -42,7 +42,7 @@ const Scrabble: React.FC<Props> = ({ onResetMode }) => {
           <Image source={images.megaPhone} style={styles.imagePhone} />
         </View>
         <View style={[styles.glassContainer, { backgroundColor: "#e6e3dd" }]}>
-          <CustomText style={styles.cardText}>Setting</CustomText>
+          <CustomText style={styles.cardText}>Settings</CustomText>
           <Image source={images.setting} style={styles.image} />
         </View>
       </View>

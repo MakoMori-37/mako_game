@@ -43,6 +43,9 @@ const COLORS = {
   blurPink: "#efddf7",
   gold: "#FFCB74",
   blurBlack: "#2F2F2F",
+  orange: '#FC9C57',
+  error: '#f04e22',
+  success: '#0abf15',
 };
 
 const FONT = {
