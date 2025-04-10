@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import CircularMenu from "../widget/CircularMenu";
+import CircularMenu from "./widget/CircularMenu";
 
 export default function MainScreen() {
   return (
