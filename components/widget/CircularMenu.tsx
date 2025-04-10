@@ -8,22 +8,22 @@ export default function CircularMenu() {
     <View style={styles.container}>
       <View style={styles.row1}>
         <MenuItem imageLabel={images.book} textLabel="Scrabble" />
-        <MenuItem imageLabel={images.comingSoon} textLabel="coming soon" />
+        <MenuItem />
       </View>
 
       <View style={styles.row}>
-        <MenuItem imageLabel={images.comingSoon} textLabel="coming soon" />
+        <MenuItem />
 
         <TouchableOpacity style={styles.fingerprintButton}>
           <Image source={images.textGame} style={styles.image} />
         </TouchableOpacity>
 
-        <MenuItem imageLabel={images.comingSoon} textLabel="coming soon" />
+        <MenuItem />
       </View>
 
       <View style={styles.row1}>
-        <MenuItem imageLabel={images.comingSoon} textLabel="coming soon" />
-        <MenuItem imageLabel={images.comingSoon} textLabel="coming soon" />
+        <MenuItem />
+        <MenuItem />
       </View>
     </View>
   );
@@ -31,7 +31,7 @@ export default function CircularMenu() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
+    marginTop: 60,
   },
   row: {
     flexDirection: "row",
@@ -46,18 +46,15 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: "100%",
     marginVertical: 10,
-    paddingHorizontal: 55,
+    paddingHorizontal: 20,
   },
   fingerprintButton: {
-    backgroundColor: COLORS.pink,
-    padding: 20,
-    borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 20,
   },
   image: {
-    width: 30,
-    height: 30,
+    width: 100,
+    height: 100,
   },
 });

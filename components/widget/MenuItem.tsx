@@ -1,20 +1,31 @@
 import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 import { COLORS, SIZES } from "../../constants";
 import { BlurView } from "expo-blur";
 import CustomText from "../../utils/CustomText";
 
 type Props = {
-  imageLabel: number;
-  textLabel: string;
+  imageLabel?: number;
+  textLabel?: string;
 };
 
 const MenuItem: React.FC<Props> = ({ textLabel, imageLabel }) => {
   return (
-    <BlurView intensity={65} tint="light" style={styles.glassContainer}>
+    <BlurView
+      intensity={imageLabel ? 65 : 50}
+      tint="light"
+      style={styles.glassContainer}
+    >
       <TouchableOpacity style={styles.iconButton}>
-        <Image source={imageLabel} style={styles.image} />
-        <CustomText style={styles.label}>{textLabel}</CustomText>
+        {imageLabel ? (
+          <Image source={imageLabel} style={styles.image} />
+        ) : (
+          <Ionicons name="hourglass-outline" size={25} color={COLORS.gray3} />
+        )}
+        <CustomText style={styles.label}>
+          {textLabel ? textLabel : "Coming soon"}
+        </CustomText>
       </TouchableOpacity>
     </BlurView>
   );
@@ -23,7 +34,6 @@ const MenuItem: React.FC<Props> = ({ textLabel, imageLabel }) => {
 export default MenuItem;
 
 const styles = StyleSheet.create({
-  container: {},
   label: {
     fontSize: SIZES.small,
     color: COLORS.white,
