@@ -1,10 +1,11 @@
+import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import MainScreen from "./components/mainScreen/MainScreen";
 
-export default function App() {
+export default function CircularMenu() {
   return (
     <View style={styles.container}>
-      <MainScreen />
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
     </View>
   );
 }

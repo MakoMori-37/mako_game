@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
-import MainScreen from "./components/mainScreen/MainScreen";
+import CircularMenu from "../widget/CircularMenu";
 
-export default function App() {
+export default function MainScreen() {
   return (
     <View style={styles.container}>
-      <MainScreen />
+      <Text>TEST</Text>
+      <CircularMenu />
     </View>
   );
 }
