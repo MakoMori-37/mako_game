@@ -8,11 +8,6 @@ import { COLORS, SIZES } from "../constants";
 import { useState } from "react";
 import Scrabble from "./games/Scrabble";
 
-enum Mode {
-  main = "main",
-  gameScrabble = "gameScrabble",
-}
-
 export default function MainScreen() {
   const [mode, setMode] = useState<Mode>(Mode.main);
 
@@ -27,9 +22,9 @@ export default function MainScreen() {
   const DisplaySection = () => {
     switch (mode) {
       case Mode.main:
-        return <CircularMenu />;
+        return <CircularMenu onSetMode={handleSetMode} />;
       case Mode.gameScrabble:
-        return <Scrabble />;
+        return <Scrabble onResetMode={handleResetMode} />;
       default:
         break;
     }
@@ -46,8 +41,8 @@ export default function MainScreen() {
         <CustomText style={styles.timeText}>
           {dayjs().format("HH:mm")}
         </CustomText>
-        {DisplaySection()}
       </View>
+      {DisplaySection()}
     </View>
   );
 }

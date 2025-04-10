@@ -1,13 +1,21 @@
 import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 
-import { COLORS, images } from "../../constants";
+import { images } from "../../constants";
 import MenuItem from "./MenuItem";
 
-export default function CircularMenu() {
+type Props = {
+  onSetMode: (m: Mode) => void;
+};
+
+const CircularMenu: React.FC<Props> = ({ onSetMode }) => {
   return (
     <View style={styles.container}>
       <View style={styles.row1}>
-        <MenuItem imageLabel={images.book} textLabel="Scrabble" />
+        <MenuItem
+          imageLabel={images.book}
+          textLabel="Scrabble"
+          onSetMode={onSetMode}
+        />
         <MenuItem />
       </View>
 
@@ -27,7 +35,9 @@ export default function CircularMenu() {
       </View>
     </View>
   );
-}
+};
+
+export default CircularMenu;
 
 const styles = StyleSheet.create({
   container: {

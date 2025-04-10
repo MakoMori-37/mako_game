@@ -8,16 +8,17 @@ import CustomText from "../../utils/CustomText";
 type Props = {
   imageLabel?: number;
   textLabel?: string;
+  onSetMode?: (m: Mode) => void;
 };
 
-const MenuItem: React.FC<Props> = ({ textLabel, imageLabel }) => {
+const MenuItem: React.FC<Props> = ({ textLabel, imageLabel, onSetMode }) => {
   return (
     <BlurView
       intensity={imageLabel ? 65 : 50}
       tint="light"
       style={styles.glassContainer}
     >
-      <TouchableOpacity style={styles.iconButton}>
+      <TouchableOpacity onPress={() => onSetMode?.(Mode.gameScrabble)} style={styles.iconButton}>
         {imageLabel ? (
           <Image source={imageLabel} style={styles.image} />
         ) : (
