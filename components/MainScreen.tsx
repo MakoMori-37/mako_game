@@ -13,7 +13,7 @@ export default function MainScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#3e3f40",
     alignItems: "center",
     justifyContent: "center",
   },
