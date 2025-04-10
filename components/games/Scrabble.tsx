@@ -1,14 +1,32 @@
-import { View, StyleSheet, ImageBackground, Image } from "react-native";
+import { useState } from "react";
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 import { COLORS, SIZES, images } from "../../constants";
 import CustomText from "../../utils/CustomText";
+import SettingsModal from "./SettingsModal";
 
 type Props = {
   onResetMode: () => void;
 };
 
 const Scrabble: React.FC<Props> = ({ onResetMode }) => {
+  const [open, setOpen] = useState(false);
+  const [time, setTime] = useState(3);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <View style={styles.container}>
       <Ionicons
@@ -41,11 +59,15 @@ const Scrabble: React.FC<Props> = ({ onResetMode }) => {
           <CustomText style={styles.cardText}>Start</CustomText>
           <Image source={images.megaPhone} style={styles.imagePhone} />
         </View>
-        <View style={[styles.glassContainer, { backgroundColor: "#e6e3dd" }]}>
+        <TouchableOpacity
+          style={[styles.glassContainer, { backgroundColor: "#e6e3dd" }]}
+        >
           <CustomText style={styles.cardText}>Settings</CustomText>
           <Image source={images.setting} style={styles.image} />
-        </View>
+        </TouchableOpacity>
       </View>
+
+      <SettingsModal isOpen={open} onClose={handleClose} timeValue={time} />
     </View>
   );
 };

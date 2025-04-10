@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, TextInput, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import LinearGradient from "react-native-linear-gradient";
 import Snackbar from "react-native-snackbar";
 
 import CustomText from "../../utils/CustomText";
@@ -14,10 +13,10 @@ type Props = {
   onClose: () => void;
 };
 
-const SettingsModal: React.FC<Props> = ({ isOpen, onClose, timeValue }) => {
+const SettingsModal: React.FC<Props> = ({}) => {
   const [time, setTime] = useState("3");
 
-  const handlePress = async () => {
+  const handlePress = () => {
     if (!time.trim()) {
       Snackbar.show({
         text: "ข้อมูลเวลาไม่ถูกต้อง",
@@ -29,24 +28,21 @@ const SettingsModal: React.FC<Props> = ({ isOpen, onClose, timeValue }) => {
     }
   };
 
-  useEffect(() => {
-    if (timeValue.toString() !== time) {
-      setTime(timeValue.toString());
-    }
-  }, [timeValue]);
+  //   useEffect(() => {
+  //     if (timeValue.toString() !== time) {
+  //       setTime(timeValue.toString());
+  //     }
+  //   }, [timeValue]);
 
   return (
     <>
-      <Modal isVisible={isOpen} onBackdropPress={onClose} propagateSwipe={true}>
-        <LinearGradient colors={["#F3F7F9", "#C6E1F0"]} style={styles.modal}>
+      <Modal propagateSwipe={true}>
+        <View style={styles.modal}>
           <View style={styles.line} />
           <View style={styles.dateBoxLeft}>
             <Ionicons name="time-outline" size={40} color={COLORS.blurPink} />
             <CustomText style={styles.dateText}>test</CustomText>
-            <LinearGradient
-              colors={["#F3F7F9", "#C6E1F0"]}
-              style={styles.inputBox}
-            >
+            <View style={styles.inputBox}>
               <TextInput
                 value={time}
                 style={styles.input}
@@ -54,7 +50,7 @@ const SettingsModal: React.FC<Props> = ({ isOpen, onClose, timeValue }) => {
                 keyboardType="numeric"
                 onChangeText={(text) => setTime(text)}
               />
-            </LinearGradient>
+            </View>
             <CustomText style={styles.dateText}>test</CustomText>
           </View>
           <View style={styles.line} />
@@ -64,7 +60,7 @@ const SettingsModal: React.FC<Props> = ({ isOpen, onClose, timeValue }) => {
               <CustomText style={styles.buttonText}>Save</CustomText>
             </TouchableOpacity>
           </View>
-        </LinearGradient>
+        </View>
       </Modal>
     </>
   );
