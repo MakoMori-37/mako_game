@@ -1,4 +1,1 @@
-enum Mode {
-    main = "main",
-    gameScrabble = "gameScrabble",
-  }
+type Mode = "main" | "gameScrabble";

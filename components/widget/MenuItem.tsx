@@ -18,7 +18,7 @@ const MenuItem: React.FC<Props> = ({ textLabel, imageLabel, onSetMode }) => {
       tint="light"
       style={styles.glassContainer}
     >
-      <TouchableOpacity onPress={() => onSetMode?.(Mode.gameScrabble)} style={styles.iconButton}>
+      <TouchableOpacity onPress={() => onSetMode?.('gameScrabble')} style={styles.iconButton}>
         {imageLabel ? (
           <Image source={imageLabel} style={styles.image} />
         ) : (

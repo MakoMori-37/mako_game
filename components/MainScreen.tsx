@@ -9,21 +9,21 @@ import { useState } from "react";
 import Scrabble from "./games/Scrabble";
 
 export default function MainScreen() {
-  const [mode, setMode] = useState<Mode>(Mode.main);
+  const [mode, setMode] = useState<Mode>('main');
 
   const handleSetMode = (m: Mode) => {
     setMode(m);
   };
 
   const handleResetMode = () => {
-    setMode(Mode.main);
+    setMode('main');
   };
 
   const DisplaySection = () => {
     switch (mode) {
-      case Mode.main:
+      case 'main':
         return <CircularMenu onSetMode={handleSetMode} />;
-      case Mode.gameScrabble:
+      case 'gameScrabble':
         return <Scrabble onResetMode={handleResetMode} />;
       default:
         break;
