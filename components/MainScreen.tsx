@@ -7,32 +7,28 @@ import { useState } from "react";
 import Scrabble from "./games/Scrabble";
 
 export default function MainScreen() {
-  const [mode, setMode] = useState<Mode>('main');
+  const [mode, setMode] = useState<Mode>("main");
 
   const handleSetMode = (m: Mode) => {
     setMode(m);
   };
 
   const handleResetMode = () => {
-    setMode('main');
+    setMode("main");
   };
 
   const DisplaySection = () => {
     switch (mode) {
-      case 'main':
+      case "main":
         return <CircularMenu onSetMode={handleSetMode} />;
-      case 'gameScrabble':
+      case "gameScrabble":
         return <Scrabble onResetMode={handleResetMode} />;
       default:
         break;
     }
   };
 
-  return (
-    <View style={styles.container}>
-      {DisplaySection()}
-    </View>
-  );
+  return <View style={styles.container}>{DisplaySection()}</View>;
 }
 
 const styles = StyleSheet.create({
@@ -41,5 +37,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
 });
