@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 
+import { COLORS, SIZES } from "../../constants";
+import CustomText from "../../utils/CustomText";
+import MenuItem from "./MenuItem";
+
 export default function CircularMenu() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <MenuItem />
     </View>
   );
 }

@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    color: COLORS.lightBlue,
+    color: COLORS.blurPink,
     fontSize: SIZES.xxLarge,
+    fontWeight: "bold",
   },
 });

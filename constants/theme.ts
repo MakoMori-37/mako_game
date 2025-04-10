@@ -1,3 +1,6 @@
+const tintColorLight = "#0a7ea4";
+const tintColorDark = "#fff";
+
 const COLORS = {
   primary: "#00B1DA",
   secondary: "#0C5C88",
@@ -18,12 +21,28 @@ const COLORS = {
   deepBlue: "#0C5C88",
   darkGray: "#555555",
 
-  pink: "#F1A6C6",
-
-  orange: "#FC9C57",
-
-  error: "#f04e22",
-  success: "#0abf15",
+  light: {
+    text: "#11181C",
+    background: "#fff",
+    tint: tintColorLight,
+    icon: "#687076",
+    tabIconDefault: "#687076",
+    tabIconSelected: tintColorLight,
+  },
+  dark: {
+    text: "#ECEDEE",
+    background: "#151718",
+    tint: tintColorDark,
+    icon: "#9BA1A6",
+    tabIconDefault: "#9BA1A6",
+    tabIconSelected: tintColorDark,
+  },
+  black: "#070308",
+  // black: "#111111",
+  pink: "#e57cd8",
+  blurPink: "#efddf7",
+  gold: "#FFCB74",
+  blurBlack: "#2F2F2F",
 };
 
 const FONT = {
