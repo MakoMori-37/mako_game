@@ -35,6 +35,17 @@ const Scrabble: React.FC<Props> = ({ onResetMode }) => {
           </CustomText>
         </View>
       </ImageBackground>
+
+      <View style={styles.topContainer}>
+        <View style={[styles.glassContainer, { backgroundColor: "#eff0e7" }]}>
+          <CustomText style={styles.cardText}>Start</CustomText>
+          <Image source={images.megaPhone} style={styles.imagePhone} />
+        </View>
+        <View style={[styles.glassContainer, { backgroundColor: "#e6e3dd" }]}>
+          <CustomText style={styles.cardText}>Setting</CustomText>
+          <Image source={images.setting} style={styles.image} />
+        </View>
+      </View>
     </View>
   );
 };
@@ -91,5 +102,35 @@ const styles = StyleSheet.create({
     zIndex: 3,
     elevation: 3,
     fontFamily: "Helvetica",
+  },
+  image: {
+    width: 60,
+    height: 60,
+  },
+  cardText: {
+    fontSize: 14,
+    fontWeight: "bold",
+    fontFamily: "Helvetica",
+  },
+  topContainer: {
+    gap: 10,
+    flexDirection: "row",
+    width: "100%",
+    marginTop: 15,
+  },
+  glassContainer: {
+    width: "48%",
+    height: 80,
+    borderRadius: 10,
+    padding: 15,
+    backgroundColor: "#eff0e7",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  imagePhone: {
+    width: 60,
+    height: 60,
+    marginLeft: -20,
+    marginTop: 10,
   },
 });
