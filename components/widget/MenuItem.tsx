@@ -1,17 +1,20 @@
 import { StyleSheet, Image, TouchableOpacity } from "react-native";
 
-import { COLORS, SIZES, images } from "../../constants";
+import { COLORS, SIZES } from "../../constants";
 import { BlurView } from "expo-blur";
 import CustomText from "../../utils/CustomText";
 
-type Props = {};
+type Props = {
+  imageLabel: number;
+  textLabel: string;
+};
 
-const MenuItem: React.FC<Props> = ({}) => {
+const MenuItem: React.FC<Props> = ({ textLabel, imageLabel }) => {
   return (
     <BlurView intensity={65} tint="light" style={styles.glassContainer}>
       <TouchableOpacity style={styles.iconButton}>
-        <Image source={images.logo} style={styles.image} />
-        <CustomText style={styles.label}>Scrabble</CustomText>
+        <Image source={imageLabel} style={styles.image} />
+        <CustomText style={styles.label}>{textLabel}</CustomText>
       </TouchableOpacity>
     </BlurView>
   );

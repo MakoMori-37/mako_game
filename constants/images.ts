@@ -1,6 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const logo = require("../assets/icon.png");
+const book: number = require("../assets/images/book.png");
+const comingSoon: number = require("../assets/images/coming_soon_paint_brush_stroke.jpg");
+const textGame: number = require("../assets/images/text game.png");
 
 export default {
-  logo,
+  comingSoon,
+  book,
+  textGame,
 };
